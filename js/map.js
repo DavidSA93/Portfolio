@@ -8,24 +8,25 @@
 L.DomEvent.on(window, 'load', init);
 var greenIcon = L.icon({
     iconUrl: 'img/icon.png',
-    iconSize:  [30, 45],
+    iconSize:  [20, 35],
 
 })
 
 
 function init() {
     // Basic options for a simple Google Map
-    let map = L.map('map').setView([39.9914718, -0.06534319999999999], 15);
+    let map = L.map('map').setView([41.3851, 2.1734], 12);
   
 
-    L.tileLayer(' https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://cartodb.com/attributions">CartoDB</a>'
+    L.tileLayer(' https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd'
     }).addTo(map);
 
  
  
 
-    L.marker([39.9914718, -0.06534319999999999], {icon: greenIcon}).addTo(map).bindPopup("<h5 id='pop-up'>I am here</h5>").openPopup();
+    L.marker([41.3851, 2.1734], {icon: greenIcon}).addTo(map).bindPopup("<h5 id='pop-up'>I am here</h5>").openPopup();
 
     window.setTimeout(function () {
         map.invalidateSize();
